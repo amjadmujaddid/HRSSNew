@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript">
+        $(document).ready(function () {
+            window.addEventListener('beforeunload', sessionDestroy);
+            $("#divButtonPrint").hide();
+        });
+        function sessionDestroy() {
+            ajax({
+                url: "<%=Func.BaseUrl%>Reports/ReportViewer.aspx/sessionDestroy",
+                data: "{'sessionId': '" + $('#hdnSession').val() + "'}"
+            });
+        }
+</script>
+
+<section class="content">
+    <div class="box box-info">
+        <input type="hidden" id="hdnSession" />
+        <div align="center">
+            <CR:CrystalReportViewer ID="crReport" AutoDataBind="true" Height="100%" Width="100%" />
+        </div>
+        <footer id="mainFooter" class="main-footer" style="margin-left: 0">
+            <div>&copy; 2016 PT Sakura System Solutions</div>
+        </footer>
+    </div>
+</section>

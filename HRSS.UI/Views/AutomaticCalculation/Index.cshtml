@@ -1,0 +1,198 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content-header">
+    <div class="box box-info">
+        <div class="box-body">
+            <div class="row">
+                <div class="col-lg-12 col-xs-12">
+                    <div class="col-lg-4 col-xs-4">
+                        <div class="form-group col-lg-4 col-xs-4">
+                            <label for="lblYear">Year (*) : </label>
+                        </div>
+                        <div class="form-group col-lg-7 col-xs-7">
+                            <select id="cboYears" class="form-control" name="years">
+                                <option> -- Choose Years -- </option>
+                                <option>2016</option>
+                                <option>2017</option>
+                                <option>2018</option>
+                                <option>2019</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-xs-4">
+                        <div class="form-group col-lg-4 col-xs-4">
+                            <label for="lblGrade">Grade (*) : </label>
+                        </div>
+                        <div class="form-group col-lg-7 col-xs-7">
+                            <select id="cboYears" class="form-control" name="years">
+                                <option> -- Choose Grade -- </option>
+                                @*<option>HR Manager</option>
+                                <option>Junior Operator</option>
+                                <option>Senior Operator</option>
+                                <option>Software Developer</option>*@
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-xs-4">
+                        <button type="submit" id="btnSearch" class="btn btn-primary pull-right" data-loading-text="Loading.." autocomplete="off">Search</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="content">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box box-info">
+                <div class="box-header">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="btn-group">
+                                <button id="btnAdd" class="btn btn-default btn-md" onclick="AddAutomaticCalculation()"> Add</button>
+                                <button id="btnDelete" class="btn btn-default btn-md">Delete</button>
+                                <button id="btnUpdate" class="btn btn-default btn-md">Update</button>
+                                <button id="btnReturn" class="btn btn-default btn-md">Return</button>
+                                <button id="btnExcel" class="btn btn-default btn-md">Export to Excel</button>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="col-lg-5 pull-right">
+                                <div class="input-group">
+                                    <input type="search" placeholder="Search" class="form-control" />
+                                    <span class="input-group-btn">
+                                        <button type="submit" class="btn"><i class="fa fa-search"></i></button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <table class="table table-bordered table-hover table-fill" id="gridAutomaticCalculation"></table>
+                    <div id="gridAutomaticCalculationPager"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="modal fade" id="modalAddAutomaticCalculation" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Add</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label col-xs-2"> GroupNo:</label>
+                        <div class="col-xs-10">
+                            <p class="form-control-static">0002</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-2">Grade: </label>
+                        <div class="col-xs-10">
+                            <p class="form-control-static">Junior Developer</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-10">
+                            <label class="control-label">Work Unit</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-2"></label>
+                        <div class="col-xs-10">
+                            <div class="checkbox disabled">
+                                <label><input type="checkbox" value="" disabled>Product Section 1</label>
+                            </div>
+                            <div class="checkbox disabled">
+                                <label><input type="checkbox" value="" disabled>Product Section 2</label>
+                            </div>
+                            <div class="checkbox">
+                                <label><input type="checkbox" value="" checked>Product Section 3</label>
+                            </div>
+                            <div class="checkbox">
+                                <label><input type="checkbox" value="">Product Section 4</label>
+                            </div>
+                            <div class="checkbox">
+                                <label><input type="checkbox" value="" checked>Product Section 5</label>
+                            </div>
+                            <div class="checkbox">
+                                <label><input type="checkbox" value="">QC Section 1</label>
+                            </div>
+                            <div class="checkbox">
+                                <label><input type="checkbox" value="" checked>QC Section 2</label>
+                            </div>
+                            <div class="checkbox">
+                                <label><input type="checkbox" value="">QC Section 3</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-10">
+                            <label class="control-label">PA Distribution</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-10">
+                            <div class="form-group col-lg-2 col-xs-2">
+                                <label for="lblS">S: </label>
+                            </div>
+                            <div class="form-group col-lg-4 col-xs-4">
+                                <input type="text" id="txtS" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-xs-10">
+                            <div class="form-group col-lg-2 col-xs-2">
+                                <label for="lblS">A: </label>
+                            </div>
+                            <div class="form-group col-lg-4 col-xs-4">
+                                <input type="text" id="txtA" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-xs-10">
+                            <div class="form-group col-lg-2 col-xs-2">
+                                <label for="lblS">B: </label>
+                            </div>
+                            <div class="form-group col-lg-4 col-xs-4">
+                                <input type="text" id="txtB" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-xs-10">
+                            <div class="form-group col-lg-2 col-xs-2">
+                                <label for="lblS">C: </label>
+                            </div>
+                            <div class="form-group col-lg-4 col-xs-4">
+                                <input type="text" id="txtC" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-xs-10">
+                            <div class="form-group col-lg-2 col-xs-2">
+                                <label for="lblS">D: </label>
+                            </div>
+                            <div class="form-group col-lg-4 col-xs-4">
+                                <input type="text" id="txtD" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+

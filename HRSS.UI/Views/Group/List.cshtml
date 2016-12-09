@@ -1,0 +1,115 @@
+﻿
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    #divProgress {
+        position: relative;
+        width: 100%;
+        height: 30px;
+        background-color: #ddd;
+    }
+
+    #divBar {
+        position: absolute;
+        width: 10%;
+        height: 100%;
+        background-color: #4CAF50;
+    }
+
+    #label {
+        text-align: center;
+        line-height: 30px;
+        color: white;
+    }
+</style>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#btnSubmit").click(function () {
+            var file = $("#file").val();
+            $.ajax({
+                type: "POST",
+                url: "upload",
+                data: JSON.stringify({ fileUpload: file }),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (response) {
+                    alert("Data Uploaded: ");
+                }
+            });
+        });
+    });
+</script>
+<section class="content" id="form_UploadFile">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box box-info">
+                <div class="box-header">
+                    <div class="col-lg-6">
+                        <select class="form-control" id="cboGroup"></select>
+                    </div>
+                    <div class="col-lg-6">
+                        <input type="file" id="file" name="file">
+                        <button id="btnSubmit" type="submit" class="glyphicon-save-file"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box box-info">
+                <div class="box-header">
+                    <div id="divProgress">
+                        <div id="divBar">
+                            <div id="label">0%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box box-info">
+                <div class="box-header">
+                    <div class="row" style="padding:10px 0px;">
+                        <div class="col-lg-6">
+                            <div class="btn-group">
+                                <button id="btnAdd" class="btn btn-default btn-md" onclick="addNew()"> Add</button>
+                                <button id="btnDelete" class="btn btn-default btn-md" onclick="deleteData()">Delete</button>
+                                <button id="btnUpdate" class="btn btn-default btn-md" onclick="editData()">Update</button>
+                                <button id="btnReturn" class="btn btn-default btn-md">Return</button>
+                                <button id="btnExcel" class="btn btn-default btn-md">Export to Excel</button>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="input-group">
+                                <input type="text" placeholder="Search by Id" id="txtSearchGroup" class="form-control" />
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn" id="btnSearch"><i class="fa fa-search"></i></button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="table table-bordered table-fill" id="grdGroup"></table>
+                    <div id="ctrlGrdGroup"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="modal fade" id="modalGroup" role="dialog">
+   @Html.Partial("Add")
+</div>
+<div class="modal" id="modalDeleteGroup">
+    @Html.Partial("Delete")
+</div>
+
+
+

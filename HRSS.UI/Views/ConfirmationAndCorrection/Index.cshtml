@@ -1,0 +1,198 @@
+﻿
+@{
+    ViewBag.Title = "ConfirmationCorrectionDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content-header">
+    <div class="box box-info">
+        <div class="box-body">
+            <div class="col-lg-11">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="form-group col-lg-3 col-xs-3">
+                            <label for="lblEmpNo">EmpNo</label>
+                        </div>
+                        <div class="form-group col-lg-5 col-xs-5">
+                            <text id="txtEmpNo" class="form-control">KS007</text>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div class="form-group col-lg-4 col-xs-3">
+                            <label for="lblPhone">Phone</label>
+                        </div>
+                        <div class="form-group col-lg-8 col-xs-7">
+                            <input type="text" id="txtPhone" value="123-456" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div class="form-group col-lg-3 col-xs-3">
+                            <label for="lblGen">Gen</label>
+                        </div>
+                        <div class="form-group col-lg-5 col-xs-5">
+                            <text id="txtGen" class="form-control">F</text>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="form-group col-lg-3 col-xs-3">
+                            <label for="lblName">Name </label>
+                        </div>
+                        <div class="form-group col-lg-9 col-xs-9">
+                            <text id="txtName" class="form-control">Abiko Yukiko</text>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group col-lg-4 col-xs-4">
+                            <label for="lblPosition">Position</label>
+                        </div>
+                        <div class="form-group col-lg-8 col-xs-8">
+                            <input type="text" id="txtPosition" value="Operator" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group col-lg-3 col-xs-3">
+                            <label for="lblWorkPeriod">Work Period</label>
+                        </div>
+                        <div class="form-group col-lg-5 col-xs-5">
+                            <text id="txtWorkPeriod" class="form-control">3</text>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="form-group col-lg-3 col-xs-3">
+                            <label for="lblHireDate">Hire Date </label>
+                        </div>
+                        <div class="form-group col-lg-9 col-xs-9">
+                            <text id="txtHireDate" class="form-control">2015/10/01</text>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group col-lg-4 col-xs-4">
+                            <label for="lblPosition">Enter Position</label>
+                        </div>
+                        <div class="form-group col-lg-8 col-xs-8">
+                            <input type="text" id="txtEnterPosition" value="Operator" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div class="form-group col-lg-3 col-xs-3">
+                            <label for="lblAge">Age</label>
+                        </div>
+                        <div class="form-group col-lg-5 col-xs-5">
+                            <text id="txtAge" class="form-control">28</text>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="form-group col-lg-3 col-xs-3">
+                            <label for="lblWorkUnit">Work Unit</label>
+                        </div>
+                        <div class="form-group col-lg-9 col-xs-9">
+                            <input type="text" id="txtWorkUnit" value="Making Section 1" class="form-control" />
+                        </div>
+                    </div>
+
+
+                    <div class="col-sm-3">
+                        <div class="form-group col-lg-4 col-xs-3">
+                            <label for="lblSecond">Second</label>
+                        </div>
+                        <div class="form-group col-lg-8 col-xs-7">
+                            <input type="text" id="txtSecond" value="1NSSMC" class="form-control" />
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-1">
+                <div class="pull-right">
+                    <img src="~/Content/image/image1.jpg" width=200 height=230 />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box box-info">
+                <div class="box-header">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="btn-group">
+                                <button id="btnAdd" class="btn btn-default btn-md" onclick="AddAutomaticCalculation()"> Add</button>
+                                <button id="btnDelete" class="btn btn-default btn-md">Delete</button>
+                                <button id="btnUpdate" class="btn btn-default btn-md">Update</button>
+                                <button id="btnReturn" class="btn btn-default btn-md">Return</button>
+                                <button id="btnExcel" class="btn btn-default btn-md">Export to Excel</button>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="col-lg-5 pull-right">
+                                <div class="input-group">
+                                    <input type="search" placeholder="Search" class="form-control" />
+                                    <span class="input-group-btn">
+                                        <button type="submit" class="btn"><i class="fa fa-search"></i></button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <table class="table table-bordered table-hover" id="gridConfirmationAndCorrectionDetail"></table>
+                    <div id="gridConfirmationAndCorrectionDetailPager"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box box-info">
+                <div class="box-header">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="btn-group">
+                                <button id="btnAdd" class="btn btn-default btn-md" onclick="AddAutomaticCalculation()"> Add</button>
+                                <button id="btnDelete" class="btn btn-default btn-md">Delete</button>
+                                <button id="btnUpdate" class="btn btn-default btn-md">Update</button>
+                                <button id="btnReturn" class="btn btn-default btn-md">Return</button>
+                                <button id="btnExcel" class="btn btn-default btn-md">Export to Excel</button>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="col-lg-5 pull-right">
+                                <div class="input-group">
+                                    <input type="search" placeholder="Search" class="form-control" />
+                                    <span class="input-group-btn">
+                                        <button type="submit" class="btn"><i class="fa fa-search"></i></button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <table class="table table-bordered table-hover" id="gridConfirmationUpdate"></table>
+                    <div id="gridConfirmationUpdatePager"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

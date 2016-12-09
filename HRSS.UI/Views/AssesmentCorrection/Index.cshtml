@@ -1,0 +1,142 @@
+﻿
+@{
+    ViewBag.Title = "Assesment and Correction";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Scripts/function/assesment-correction.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+    });
+</script>
+
+<section class="content">
+    
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box box-info">
+                <div class="box-body">
+                    <div class="col-lg-4">
+                        <div class="row">
+                            <div class="form-group">
+                                <label for="cbo_year" class="col-sm-4 control-label">Year (*)</label>
+                                <div class="col-lg-6">
+                                    <select name="cbo_year" id="cbo_year" class="form-control input-sm">
+                                        <option value="">-----------</option>
+                                        <option value="1">2017</option>
+                                        <option value="2">2016</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label for="cbo_workUnit" class="col-sm-4 control-label">Work Unit</label>
+                                <div class="col-lg-6">
+                                    <select name="cbo_workUnit" id="cbo_workUnit" class="form-control input-sm">
+                                        <option value="">-----------</option>
+                                        <option value="1">Making Section 1</option>
+                                        <option value="2">making Section 2</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="row">
+                            <div class="form-group">
+                                <label for="cbo_positionNow" class="col-sm-4 control-label">Position (Now)</label>
+                                <div class="col-lg-6">
+                                    <select name="cbo_positionNow" id="cbo_positionNow" class="form-control input-sm">
+                                        <option value="">-----------</option>
+                                        <option value="1">Operator</option>
+                                        <option value="2">Developer</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label for="cbo_assesmentNow" class="col-sm-4 control-label">Assesment (Now)</label>
+                                <div class="col-lg-6">
+                                    <select name="cbo_assesmentNow" id="cbo_assesmentNow" class="form-control input-sm">
+                                        <option value="">-----------</option>
+                                        <option value="1">- None -</option>
+                                        <option value="2">- Without -</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="row">
+                            <div class="form-group">
+                                <label for="cbo_positionNew" class="col-sm-4 control-label">Position (New)</label>
+                                <div class="col-lg-6">
+                                    <select name="cbo_positionNew" id="cbo_positionNew" class="form-control input-sm">
+                                        <option value="">-----------</option>
+                                        <option value="1">Operator</option>
+                                        <option value="2">Developer</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label for="cbo_assesmentNew" class="col-sm-4 control-label">Assesment (New)</label>
+                                <div class="col-lg-6">
+                                    <select name="cbo_assesmentNew" id="cbo_assesmentNew" class="form-control input-sm">
+                                        <option value="">-----------</option>
+                                        <option value="1">- None -</option>
+                                        <option value="2">- Without -</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-footer">
+                    <div class="col-lg-2 col-lg-offset-10">
+                        <button type="submit" id="btnSearch" class="btn btn-primary btn-block">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box box-info">
+                <div class="box-header">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="btn-group">
+                                <button id="btnAdd" class="btn btn-default btn-md" onclick="AddAutomaticCalculation()"> Add</button>
+                                <button id="btnDelete" class="btn btn-default btn-md">Delete</button>
+                                <button id="btnUpdate" class="btn btn-default btn-md">Update</button>
+                                <button id="btnReturn" class="btn btn-default btn-md">Return</button>
+                                <button id="btnExcel" class="btn btn-default btn-md">Export to Excel</button>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="col-lg-5 pull-right">
+                                <div class="input-group">
+                                    <input type="search" placeholder="Search" class="form-control" />
+                                    <span class="input-group-btn">
+                                        <button type="submit" class="btn"><i class="fa fa-search"></i></button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <table class="table table-bordered table-hover" id="gridAssesmentCorrection"></table>
+                    <div id="gridAssesmentCorrectionPager"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
